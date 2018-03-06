@@ -13,6 +13,5 @@ PYBIND11_MODULE(example, m) {
 
     py::class_<dog>(submod, "Dog");
 
-    m.def("fun", [](std::function<bool(int)> fn) { return fn(5); },
-          py::arg("fn") = std::function<bool(int)>([](int) { return true; }));
+    m.def("fun", [](std::function<bool(int)> fn) { return fn(5); });
 }
