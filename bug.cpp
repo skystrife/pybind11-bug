@@ -9,9 +9,7 @@ class dog
 PYBIND11_MODULE(example, m) {
     m.doc() = "Example for pybind11/flask bug";
 
-    auto submod = m.def_submodule("submod");
-
-    py::class_<dog>(submod, "Dog");
+    py::class_<dog>(m, "Dog");
 
     m.def("fun", [](std::function<bool(int)> fn) { return fn(5); });
 }
